@@ -4,8 +4,12 @@ function Change(){
         change[i].setAttribute("contenteditable", true);
     }
 }
-function Add_User(){
-    window.location.replace('/index.php?url=Admin/add_user')
+function Add(what){
+    if (what == "user"){
+        window.location.replace('/index.php?url=Admin/add_user')
+    } else{
+        window.location.replace('/index.php?url=Admin/add_stuff')
+    }
 }
 
 function remove(){

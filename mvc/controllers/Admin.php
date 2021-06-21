@@ -5,21 +5,18 @@ class Admin extends Controller{
         
         $user = $model->Account();
 
-        // if (isset( $_POST["id"] )){
-        //     while ($row = mysqli_fetch_array($user)){
-        //         if ($_POST["id"] == $row[0]) {
-        //             unset($row);
-        //         }
-        //     }
-        // }
-
         $this->view("admin_user_list",[
             "user"=>$user
         ]);
+    }
 
-        // $this->view("test", [
-        //     "account"=>$user
-        // ]);
+    public function stuff(){
+        $model = $this->model("Model");
+
+        $user = $model->Stuff();
+        $this->view("admin_stuff_management", [
+            "stuff"=>$stuff
+        ]);
     }
 
     public function add_user(){
@@ -33,6 +30,23 @@ class Admin extends Controller{
             $kq = $model->AddAccount($id, $email, $password);
         }
         $this->view("add_user", [
+            "kq"=>$kq,
+            "id"=>$id
+        ]);
+    }
+
+    public function add_stuff(){
+        $model = $this->model("Model");
+        $id = rand(1,9999);
+        $kq = "false";
+
+        if (isset($_POST["add_stuff"])){
+            $name = $_POST["name"];
+            $price = $_POST["price"];
+            $imgUrl = $_POST["imgUrl"];
+            $kq = $model->AddStuff($id, $name, $price, $imgUrl);
+        }
+        $this->view("add_stuff", [
             "kq"=>$kq,
             "id"=>$id
         ]);

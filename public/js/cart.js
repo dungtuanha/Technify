@@ -31,8 +31,7 @@ var userCart = (function() {
 
         var stuff = new Stuff(id, name, price, count);
         cart.push(stuff);
-        saveCart() 
+        saveCart();
     }
 
-    
 })

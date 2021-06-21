@@ -5,8 +5,8 @@ class Model extends DB{
         return mysqli_query($this->con, $acc);
     }
 
-    public function Quotes(){
-        $quotes = "SELECT * FROM quotes";
+    public function Stuff(){
+        $quotes = "SELECT * FROM stuffs";
         return mysqli_query($this->con, $quotes);
     }
 
@@ -40,8 +40,16 @@ class Model extends DB{
         }
         return json_encode( $result );
     }
-
     
+    public function AddStuff($id, $name, $price, $imgUrl){
+        $result = False;
+        $sql = "INSERT INTO stuffs VALUES ('$id', '$name', '$price', `$imgUrl`)";
+        if( mysqli_query($this->con, $sql) ){
+                $result = True;
+        }
+
+        return json_encode( $result );
+    }
 }
 
 ?>
