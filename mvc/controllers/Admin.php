@@ -13,7 +13,7 @@ class Admin extends Controller{
     public function stuff(){
         $model = $this->model("Model");
 
-        $user = $model->Stuff();
+        $stuff = $model->Stuff();
         $this->view("admin_stuff_management", [
             "stuff"=>$stuff
         ]);

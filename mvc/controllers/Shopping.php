@@ -5,7 +5,7 @@ class Shopping extends Controller{
 
         $isLogin = $_SESSION['isLogin'];
         
-        $this->view("shopping_page.php", [
+        $this->view("shopping_page", [
             "isLogin"=>$isLogin
         ]);
     }

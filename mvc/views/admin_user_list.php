@@ -41,11 +41,7 @@
         ?>
     </ul>
 
-    <?php 
-    $data = $_POST['id'];
-    mysqli_query($this->con, "");
-    ?>
-    <button onclick="Add_User()">Add</button>
+    <button onclick="Add('user')">Add</button>
     <button onclick="Change()">Edit</button>
     <button onclick="remove()">Remove</button>
     <script src="/public/js/admin.js"></script>

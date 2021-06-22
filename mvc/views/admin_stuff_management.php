@@ -21,31 +21,28 @@
     <ul class="site-width">
         <li class='grey'>
             <span><b>Id</b></span>
-            <span><b>email</b></span>
+            <span><b>Name</b></span>
             <div>
-                <span><b>password</b></span>
+                <span><b>Price</b></span>
                 <span> <i>
                 </i> </span>
             </div>
         </li>
         <?php 
-        while ($row = mysqli_fetch_array($data['user'])){
+        while ($row = mysqli_fetch_array($data['stuff'])){
             echo '<li class="grey" id ='.$row[0].'>
                 <span>'.$row[0].'</span>
-                <span contenteditable="false" id="email">'.$row[1].'</span>
+                <span contenteditable="false" id="name">'.$row[1].'</span>
                 <div>
-                    <span contenteditable="false" id="password">'.$row[2].'</span>
+                    <span contenteditable="false" id="price">'.$row[2].'</span>
                 </div>
             </li>';
         }
         ?>
     </ul>
 
-    <?php 
-    $data = $_POST['id'];
-    mysqli_query($this->con, "");
-    ?>
-    <button onclick="Add_Stuff()">Add</button>
+    
+    <button onclick="Add('stuff')">Add</button>
     <button onclick="Change()">Edit</button>
     <button onclick="remove()">Remove</button>
     <script src="/public/js/admin.js"></script>
