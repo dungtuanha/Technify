@@ -15,19 +15,10 @@ var userCart = (function() {
         cart = JSON.parse(sessionStorage.getItem('userCart'));
     }
     if (sessionStorage.getItem("userCart") != null){
-        loadCart()
+        loadCart();
     }
 
     var obj = {};
-
-    obj.countItem = function(name, count) {
-        for(var item in cart) {
-            if (cart[item].name === name) {
-                cart[item].count = count;
-                break;
-            }
-        }
-    }
 
     obj.addToCart = function(id, name, price, count) {
         for (var item in cart) {
@@ -82,7 +73,7 @@ var userCart = (function() {
     obj.totalCount = function() {
         var totalCount = 0;
         for(var item in cart){
-            totalCount+= cart[item].count;
+            totalCount += cart[item].count;
         }
         return totalCount;
     }
@@ -98,11 +89,11 @@ var userCart = (function() {
 
     obj.userCartInfomation = function(){    //Thông tin đơn hàng
         var copyCart = [];
-        for(var i in cart){
+        for(i in cart){
             item = cart[i];
             copyItem = {};
             for(j in item){
-                copyItem[j] = item[p];
+                copyItem[j] = item[j];
             }
             
             copyItem.total = Number(item.price * item.count).toFixed(2);
@@ -136,30 +127,30 @@ function displayCart() {
 
 //Ajax handle
 
-$('.addToCart').click(function(event){
+$('.add-to-cart').click(function(event){
     event.preventDefault(); //Ngăn chặn cách xử lý mặc định của trình duyệt
     var name = $(this).data('name');
     var price = Number($(this).data('price'));
     userCart.addToCart(name, price, 1);
     displayCart();
-})
+});
 
 $('.clear-cart').click(function() {
     userCart.clearCart();
     displayCart();
-})
+});
 
 $('.show-cart').on("click", ".minus-item", function(event){
     var name = $(this).data("name");
     userCart.removeFromCart(name);
     displayCart();
-})
+});
 
-$('.show-cart').on('change', '.plus-item', function(event){
+$('.show-cart').on('click', '.plus-item', function(event){
     var name = $(this).data('name');
     userCart.addToCart(name);
     displayCart();
-})
+});
 
 // Đếm số lượng input
 $('.show-cart').on('change', '.item-count', function(event){
@@ -167,6 +158,6 @@ $('.show-cart').on('change', '.item-count', function(event){
     var count = Number($(this).val());
     userCart.setCount(name, count);
     displayCart();
-})
+});
 
 displayCart();
