@@ -129,7 +129,6 @@ function displayCart() {
 
 $(document).ready(function(){
 
-
     $('.add-to-cart').click(function(event){
         event.preventDefault(); //Ngăn chặn cách xử lý mặc định của trình duyệt
         var name = $(this).data('name');

@@ -1,13 +1,8 @@
 <?php
-class Model extends DB{
+class User_Model extends DB{
     public function Account(){
         $acc = "SELECT * FROM account";
         return mysqli_query($this->con, $acc);
-    }
-
-    public function Stuff(){
-        $quotes = "SELECT * FROM stuffs";
-        return mysqli_query($this->con, $quotes);
     }
 
     public function AddAccount($id, $email, $password){
@@ -40,16 +35,12 @@ class Model extends DB{
         }
         return json_encode( $result );
     }
-    
-    public function AddStuff($id, $name, $price, $imgUrl){
-        $result = False;
-        $sql = "INSERT INTO stuffs VALUES ('$id', '$name', '$price', `$imgUrl`)";
-        if( mysqli_query($this->con, $sql) ){
-                $result = True;
-        }
 
-        return json_encode( $result );
+    public function RemoveUser($id){
+        $qr = "DELETE FROM account WHERE id=".$id;
+        mysqli_query($this->con, $qr);
     }
+    
 }
 
 ?>

@@ -8,11 +8,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="C:/Users/DEL/Downloads/Technify/public/css/cart.css">
-    <script src="C:/Users/DEL/Downloads/Technify/public/js/cart.js"></script>
+    <link rel="stylesheet" href="/public/css/cart.css">
+    <script src="/public/js/cart.js"></script>
     <title>Shopping Time!!</title>
 </head>
 <body>
+
     <nav class="navbar navbar-inverse bg-inverse fixed-top bg-faded">
         <div class="row">
             <div class="col">
@@ -26,21 +27,24 @@
         </div>
     </nav>
 
-    
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="card" style="width: 20rem;">
-                    <img class="card-img-top" src="https://cdn.cellphones.com.vn/media/catalog/product/cache/7/small_image/350x/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone-12-pro-max_1__7.jpg" alt="Card image cap">
-                    <div class="card-block">
-                        <h4 class="card-tilte">IPhone 12 Pro Max</h4>
-                        <p class="card-text">Price: 10000</p>
-                        <a href="#" data-name="Iphone" data-price="10000" class="add-to-cart btn btn-primary">Add to cart</a>
+    <?php
+    foreach ($data["stuff"] as $item){
+        echo '<div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 20rem;">
+                        <img class="card-img-top" src="'.$item[2].'" alt="Card image cap">
+                        <div class="card-block">
+                            <h4 class="card-tilte">'.$item[0].'</h4>
+                            <p class="card-text">Price: '.$item[1].'</p>
+                            <a href="#" data-name="'.$item[0].'" data-price="'.$item[1].'" class="add-to-cart btn btn-primary">Add to cart</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div>';
+    }
+    ?>
 
 
     <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -56,7 +60,7 @@
                     <table class="show-cart table">
 
                     </table>
-                    <div>Total price: VND<span class="total-cart"></span></div>
+                    <div>Total price: <span class="total-cart"> VND</span></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

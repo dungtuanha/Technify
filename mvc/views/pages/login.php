@@ -4,7 +4,7 @@
             echo '<script type="text/javascript">';
             echo ' alert("Log In Successfull!")';  //not showing an alert box.
             echo '</script>';
-            echo "<script> window.location.assign('/index.php') </script>";
+            echo "<script> window.location.assign('/index.php?url=Shopping/Show') </script>";
         } elseif($data["result"] == "admin"){
             echo '<script type="text/javascript">';
             echo ' alert("Log In As Amin Successfull!")';

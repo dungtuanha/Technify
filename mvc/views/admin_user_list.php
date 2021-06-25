@@ -43,7 +43,7 @@
 
     <button onclick="Add('user')">Add</button>
     <button onclick="Change()">Edit</button>
-    <button onclick="remove()">Remove</button>
+    <button onclick="remove('user')">Remove</button>
     <script src="/public/js/admin.js"></script>
 </body>
 </html>

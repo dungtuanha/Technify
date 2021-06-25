@@ -1,17 +1,24 @@
 <?php
 class Admin extends Controller{
     public function user(){
-        $model = $this->model("Model");
+        $user = $this->model("User");
+
+        if($_SESSION["remove_user_id"]){
+            $user->RemoveUser($_SESSION["remove_user_id"]);
+        }
         
-        $user = $model->Account();
+        $account = $user->Account();
 
         $this->view("admin_user_list",[
-            "user"=>$user
+            "user"=>$account
         ]);
     }
 
     public function stuff(){
-        $model = $this->model("Model");
+        $model = $this->model("Stuff");
+        if($_SESSION["remove_stuff_id"]){
+            $model->RemoveStuff($_SESSION['remove_stuff_id']);
+        }
 
         $stuff = $model->Stuff();
         $this->view("admin_stuff_management", [

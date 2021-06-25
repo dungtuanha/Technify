@@ -1,7 +1,23 @@
 function Change(){
-    var change = document.querySelectorAll("[contenteditable=false]");
-    for(var i=0; i < change.length; i++){
-        change[i].setAttribute("contenteditable", true);
+    // var change = document.querySelectorAll("[contenteditable=false]");
+    // for(var i=0; i < change.length; i++){
+    //     change[i].setAttribute("contenteditable", true);
+    // }
+
+    var id = prompt("Pls enter id of user you want to edit!!");
+    if (document.getElementById(id)){
+        var ele = prompt("which detail you want to change?", "email, password...")
+        if (ele == "email") {
+            var change = prompt("Đổi thành gì thế? ")
+            sessionStorage.setItem("edit_email", change)
+        } else if (ele == "password") {
+            var change = prompt("Đổi thành gì thế? ")
+            sessionStorage.setItem("edit_password", change)
+        } else {
+            window.alert("Invalid Input!!!")
+        }
+    }else{
+        window.alert("Invalid Id!!!")
     }
 }
 function Add(what){
@@ -12,21 +28,12 @@ function Add(what){
     }
 }
 
-function remove(){
+function remove(what){
     var id = prompt("Please enter id to remove", "01");
-    var obj = document.getElementById(id)
-    obj.remove();
-
-    $.ajax({
-        type: "POST",
-        url: "/index.php?url=Admin/user",
-        data: {"id": id},
-        cache: false,
-        success: function(id){
-            alert("success" + id);
-        },
-        error: function(xhr, status, error){
-            console.error(xhr)
-        }
-    });
+    if (what == "user"){
+        sessionStorage.setItem('remove_user_id', id);
+    } else {
+        sessionStorage.setItem('remove_stuff_id', id)
+    }
+   window.alert("Remove successfull, pls reload page to updata change!!")
 }
