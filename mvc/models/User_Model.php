@@ -40,6 +40,16 @@ class User_Model extends DB{
         $qr = "DELETE FROM account WHERE id=".$id;
         mysqli_query($this->con, $qr);
     }
+
+    public function upDateUser($id, $ele, $change){
+        if($ele == "email"){
+            $qr = "UPDATE account SET email = '".$change."' WHERE id=".$id;
+            mysqli_query($this->con, $qr);
+        } else if ($ele == "password"){
+            $qr = "UPDATE account SET password = '".$change."' WHERE id=".$id;
+            mysqli_query($this->con, $qr);
+        }
+    }
     
 }
 

@@ -3,6 +3,10 @@ class Admin extends Controller{
     public function user(){
         $user = $this->model("User");
 
+        if($_SESSION["edit_email"]){
+            
+        }
+
         if($_SESSION["remove_user_id"]){
             $user->RemoveUser($_SESSION["remove_user_id"]);
         }

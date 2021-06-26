@@ -1,11 +1,7 @@
 function Change(){
-    // var change = document.querySelectorAll("[contenteditable=false]");
-    // for(var i=0; i < change.length; i++){
-    //     change[i].setAttribute("contenteditable", true);
-    // }
-
     var id = prompt("Pls enter id of user you want to edit!!");
     if (document.getElementById(id)){
+        sessionStorage.setItem("user_id", id)
         var ele = prompt("which detail you want to change?", "email, password...")
         if (ele == "email") {
             var change = prompt("Đổi thành gì thế? ")
@@ -20,6 +16,8 @@ function Change(){
         window.alert("Invalid Id!!!")
     }
 }
+
+
 function Add(what){
     if (what == "user"){
         window.location.replace('/index.php?url=Admin/add_user')
