@@ -2,7 +2,7 @@
 class Login extends Controller{
     public function Register(){
         $_SESSION['isLogin'] = "false";
-        $model = $this->model("Model");
+        $model = $this->model("User");
         $page= "login";
         
         if(isset( $_POST["btnRegister"] )){

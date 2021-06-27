@@ -41,7 +41,7 @@ class User_Model extends DB{
         mysqli_query($this->con, $qr);
     }
 
-    public function upDateUser($id, $ele, $change){
+    public function updateUser($id, $ele, $change){
         if($ele == "email"){
             $qr = "UPDATE account SET email = '".$change."' WHERE id=".$id;
             mysqli_query($this->con, $qr);

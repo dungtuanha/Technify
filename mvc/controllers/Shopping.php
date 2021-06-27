@@ -1,7 +1,7 @@
 <?php
 class Shopping extends Controller{
     public function Show(){
-        $model = $this->model("Model");
+        $model = $this->model("Stuff");
 
         $stuff = [
             ["Iphone 12 Promax", 35000, "https://cdn.cellphones.com.vn/media/catalog/product/cache/7/small_image/350x/9df78eab33525d08d6e5fb8d27136e95/i/p/iphone-12-pro-max_1__7.jpg"],
@@ -13,6 +13,16 @@ class Shopping extends Controller{
         $this->view("shopping_page", [
             "isLogin"=>$isLogin,
             "stuff"=>$stuff
+        ]);
+    }
+
+    public function Cart(){
+        $model = $this->model("Cart");
+
+        $cart = $_SESSION["confirmCart"];
+        
+        $this->view("shopping_page", [
+            "cart"=>$cart
         ]);
     }
 }

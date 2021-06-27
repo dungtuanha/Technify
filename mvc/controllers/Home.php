@@ -1,7 +1,7 @@
 <?php
 class Home extends Controller{
     public function Show(){
-        $model = $this->model("Model");
+        $model = $this->model("User");
 
         $isLogin = $_SESSION['isLogin'];
         

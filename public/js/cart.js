@@ -101,7 +101,6 @@ var userCart = (function() {
         }
         return copyCart;
     }
-    console.log(obj)
     return obj;
 })();
 
@@ -123,6 +122,12 @@ function displayCart() {
     $('.show-cart').html(output);
     $('.total-cart').html(userCart.bill());
     $('.total-count').html(userCart.totalCount());
+}
+
+function SaveCart(){
+    sessionStorage.setItem("confirmCart", userCart.userCartInfomation());
+    alert("Successfull");
+    window.location.assign("/index.php?url=/Shopping/Cart");
 }
 
 //Ajax handle

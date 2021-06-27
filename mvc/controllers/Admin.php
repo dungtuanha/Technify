@@ -4,7 +4,9 @@ class Admin extends Controller{
         $user = $this->model("User");
 
         if($_SESSION["edit_email"]){
-            
+            $user->updateUser($_SESSION["user_id"], "id", $_SESSION["edit_email"]);
+        } else if ($_SESSION["edit_password"]){
+            $user->updateUser($_SESSION["user_id"], "id", $_SESSION["edit_password"]);
         }
 
         if($_SESSION["remove_user_id"]){

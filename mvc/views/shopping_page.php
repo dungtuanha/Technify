@@ -13,7 +13,6 @@
     <title>Shopping Time!!</title>
 </head>
 <body>
-
     <nav class="navbar navbar-inverse bg-inverse fixed-top bg-faded">
         <div class="row">
             <div class="col">
@@ -64,7 +63,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Order Now</button>
+                    <button onclick="SaveCart()" type="button" class="btn btn-primary">Order Now</button>
                 </div>
             </div>
         </div>
