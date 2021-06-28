@@ -38,7 +38,11 @@ class User_Model extends DB{
 
     public function RemoveUser($id){
         $qr = "DELETE FROM account WHERE id=".$id;
-        mysqli_query($this->con, $qr);
+        if (mysqli_query($this->con, $qr)){
+            return $qr;
+        } else {
+            return "Error";
+        };
     }
 
     public function updateUser($id, $ele, $change){

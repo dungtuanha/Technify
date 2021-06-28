@@ -32,11 +32,11 @@
             <div class="row">
                 <div class="col">
                     <div class="card" style="width: 20rem;">
-                        <img class="card-img-top" src="'.$row[2].'" alt="Card image cap">
+                        <img class="card-img-top" src="'.$row[3].'" alt="Card image cap">
                         <div class="card-block">
-                            <h4 class="card-tilte">'.$row[0].'</h4>
-                            <p class="card-text">Price: '.$row[1].'</p>
-                            <a href="#" data-name="'.$row[0].'" data-price="'.$row[1].'" class="add-to-cart btn btn-primary">Add to cart</a>
+                            <h4 class="card-tilte">'.$row[1].'</h4>
+                            <p class="card-text">Price: '.$row[2].'</p>
+                            <a href="#" data-name="'.$row[1].'" data-price="'.$row[2].'" class="add-to-cart btn btn-primary">Add to cart</a>
                         </div>
                     </div>
                 </div>

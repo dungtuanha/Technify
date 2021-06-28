@@ -1,7 +1,7 @@
 <?php
 class Shopping extends Controller{
     public function Show(){
-        $model = $this->model("Stuff");
+        $model = $this->model("Stuff_Model");
 
         $stuff = $model->Stuff();
 
@@ -14,7 +14,7 @@ class Shopping extends Controller{
     }
 
     public function Cart(){
-        $model = $this->model("Cart");
+        $model = $this->model("Cart_Model");
 
         $cart = $_SESSION["confirmCart"];
         

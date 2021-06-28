@@ -1,27 +1,31 @@
 <?php
 class Admin extends Controller{
     public function user(){
-        $user = $this->model("User");
+        $user = $this->model("User_Model");
 
-        if($_SESSION["edit_email"]){
+        if(isset($_SESSION["edit_email"])){
             $user->updateUser($_SESSION["user_id"], "id", $_SESSION["edit_email"]);
-        } else if ($_SESSION["edit_password"]){
+        } else if (isset($_SESSION["edit_password"])){
             $user->updateUser($_SESSION["user_id"], "id", $_SESSION["edit_password"]);
         }
 
-        if($_SESSION["remove_user_id"]){
-            $user->RemoveUser($_SESSION["remove_user_id"]);
+        if(isset($_SESSION["remove_user_id"])){
+            $status = $user->RemoveUser($_SESSION["remove_user_id"]);
+        } else {
+            $status = "no session";
         }
+        $_SESSION['alo'] = 'hehe';
         
         $account = $user->Account();
 
         $this->view("admin_user_list",[
-            "user"=>$account
+            "user"=>$account,
+            "status"=>$_SESSION['alo']
         ]);
     }
 
     public function stuff(){
-        $model = $this->model("Stuff");
+        $model = $this->model("Stuff_Model");
         if($_SESSION["remove_stuff_id"]){
             $model->RemoveStuff($_SESSION['remove_stuff_id']);
         }
@@ -33,7 +37,7 @@ class Admin extends Controller{
     }
 
     public function add_user(){
-        $model = $this->model("Model");
+        $model = $this->model("User_Model");
         $id = rand(1,9999);
         $kq = "false";
 
@@ -49,7 +53,7 @@ class Admin extends Controller{
     }
 
     public function add_stuff(){
-        $model = $this->model("Model");
+        $model = $this->model("Stuff_Model");
         $id = rand(1,9999);
         $kq = "false";
 
