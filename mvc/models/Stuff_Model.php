@@ -7,7 +7,7 @@ class Stuff_Model extends DB {
 
     public function AddStuff($id, $name, $price, $imgUrl){
         $result = False;
-        $sql = "INSERT INTO stuffs VALUES ('$id', '$name', '$price', `$imgUrl`)";
+        $sql = "INSERT INTO stuffs VALUES ('$id', '$name', '$price', '$imgUrl')";
         if( mysqli_query($this->con, $sql) ){
                 $result = True;
         }

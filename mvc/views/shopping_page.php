@@ -27,16 +27,16 @@
     </nav>
 
     <?php
-    foreach ($data["stuff"] as $item){
+    while ($row = mysqli_fetch_array($data['stuff'])){
         echo '<div class="container">
             <div class="row">
                 <div class="col">
                     <div class="card" style="width: 20rem;">
-                        <img class="card-img-top" src="'.$item[2].'" alt="Card image cap">
+                        <img class="card-img-top" src="'.$row[2].'" alt="Card image cap">
                         <div class="card-block">
-                            <h4 class="card-tilte">'.$item[0].'</h4>
-                            <p class="card-text">Price: '.$item[1].'</p>
-                            <a href="#" data-name="'.$item[0].'" data-price="'.$item[1].'" class="add-to-cart btn btn-primary">Add to cart</a>
+                            <h4 class="card-tilte">'.$row[0].'</h4>
+                            <p class="card-text">Price: '.$row[1].'</p>
+                            <a href="#" data-name="'.$row[0].'" data-price="'.$row[1].'" class="add-to-cart btn btn-primary">Add to cart</a>
                         </div>
                     </div>
                 </div>
