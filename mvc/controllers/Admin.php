@@ -3,10 +3,12 @@ class Admin extends Controller{
     public function user(){
         $user = $this->model("User_Model");
 
-        if(isset($_SESSION["edit_email"])){
-            $user->updateUser($_SESSION["user_id"], "id", $_SESSION["edit_email"]);
-        } else if (isset($_SESSION["edit_password"])){
-            $user->updateUser($_SESSION["user_id"], "id", $_SESSION["edit_password"]);
+        if(isset($_COOKIE['change_user_id'])){
+            if(isset($_COOKIE['edit_email'])){
+                $user->updateUser($_COOKIE['change_user_id'], 'email', $_COOKIE['edit_email']);
+            } else if (isset($_COOKIE['edit_password'])){
+                $user->updateUser($_COOKIE['change_user_id'], 'password', $_COOKIE['edit_password']);
+            }
         }
 
         if(isset($_SESSION["remove_user_id"])){
@@ -14,13 +16,12 @@ class Admin extends Controller{
         } else {
             $status = "no session";
         }
-        $_SESSION['alo'] = 'hehe';
         
         $account = $user->Account();
 
         $this->view("admin_user_list",[
             "user"=>$account,
-            "status"=>$_SESSION['alo']
+            "status"=>$status
         ]);
     }
 

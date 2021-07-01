@@ -23,7 +23,7 @@
             <span><b>Id</b></span>
             <span><b>email</b></span>
             <div>
-                <span><b><?php echo $data['status'] ?></b></span>
+                <span><b><?php echo $data['id'] ?></b></span>
                 <span> <i>
                 </i> </span>
             </div>
