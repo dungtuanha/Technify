@@ -123,8 +123,21 @@ function displayCart() {
     $('.total-count').html(userCart.totalCount());
 }
 
+function createCookie(name, value, hours) {
+    var expires;
+    if (hours) {
+    var date = new Date();
+    date.setTime(date.getTime() + (hours * 60 * 60 * 1000));
+    expires = "; expires=" + date.toGMTString();
+    }
+    else {
+    expires = "";
+    }
+    document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
+}
+
 function SaveCart() {
-    sessionStorage.setItem("confirmCart", userCart.userCartInfomation());
+    createCookie("confirmCart", JSON.stringify(userCart.userCartInfomation()), 1);
     alert("Successfull");
     window.location.assign("/index.php?url=/Shopping/Cart");
 }

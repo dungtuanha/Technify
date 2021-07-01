@@ -29,10 +29,14 @@ function Add(what){
 
 function remove(what){
     var id = prompt("Please enter id to remove", "01");
-    if (what == "user"){
-        createCookie("remove_user_id", id, 10);
-    } else{
-        createCookie("remove_stuff_id", id, 10);
+    if(document.getElementById(id)){
+        if (what == "user"){
+            createCookie("remove_user_id", id, 10);
+        } else{
+            createCookie("remove_stuff_id", id, 10);
+        }
+    } else {
+        window.alert("Invalid Id")
     }
    window.alert("Remove successfull, pls reload page to updata change!!")
 
