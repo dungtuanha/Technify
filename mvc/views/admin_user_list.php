@@ -21,9 +21,9 @@
     <ul class="site-width">
         <li class='grey'>
             <span><b>Id</b></span>
-            <span><b>email</b></span>
+            <span><b>Email</b></span>
             <div>
-                <span><b><?php echo $data['id'] ?></b></span>
+                <span><b>Password</b></span>
                 <span> <i>
                 </i> </span>
             </div>
@@ -42,7 +42,7 @@
     </ul>
 
     <button onclick="Add('user')">Add</button>
-    <button onclick="Change()">Edit</button>
+    <button onclick="Change_user()">Edit</button>
     <button onclick="remove('user')">Remove</button>
     <script src="/public/js/admin.js"></script>
 </body>

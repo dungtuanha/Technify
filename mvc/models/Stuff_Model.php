@@ -19,6 +19,16 @@ class Stuff_Model extends DB {
         $qr = "DELETE FROM stuff WHERE id=".$id;
         mysqli_query($this->con, $qr);
     }
+
+    public function updateStuff($id, $ele, $change){
+        if($ele == "name"){
+            $qr = "UPDATE stuff SET name = '".$change."' WHERE id=".$id;
+            mysqli_query($this->con, $qr);
+        } else if ($ele == "price"){
+            $qr = "UPDATE stuff SET price = '".$change."' WHERE id=".$id;
+            mysqli_query($this->con, $qr);
+        }
+    }
 }
 
 ?>

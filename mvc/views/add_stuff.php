@@ -40,7 +40,7 @@
                 <div class="col-md-4 ">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input name="email" maxlength="30" placeholder="E-Mail" class="form-control" type="text">
+                        <input name="name" maxlength="30" placeholder="Name" class="form-control" type="text">
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 <div class="col-md-4 ">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input name="password" maxlength="16" placeholder="**********" class="form-control" type="password">
+                        <input name="price" maxlength="16" placeholder="400" class="form-control" type="number">
                     </div>
                 </div>
             </div>

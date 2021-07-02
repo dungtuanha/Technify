@@ -13,7 +13,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
     <form>
          <ul>
-                <li class="full title"><h2>Manage Users</h2></li>
+                <li class="full title"><h2>Manage Stocks</h2></li>
                 <li class="full break"><hr></li>
         </ul>
     </form>
@@ -43,7 +43,7 @@
 
     
     <button onclick="Add('stuff')">Add</button>
-    <button onclick="Change()">Edit</button>
+    <button onclick="Change_stuff()">Edit</button>
     <button onclick="remove('stuff')">Remove</button>
     <script src="/public/js/admin.js"></script>
 </body>

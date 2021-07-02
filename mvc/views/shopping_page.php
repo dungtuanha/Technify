@@ -25,25 +25,26 @@
             </div>
         </div>
     </nav>
-
-    <?php
-    while ($row = mysqli_fetch_array($data['stuff'])){
-        echo '<div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="card" style="width: 20rem;">
-                        <img class="card-img-top" src="'.$row[3].'" alt="Card image cap">
-                        <div class="card-block">
-                            <h4 class="card-tilte">'.$row[1].'</h4>
-                            <p class="card-text">Price: '.$row[2].'</p>
-                            <a href="#" data-name="'.$row[1].'" data-price="'.$row[2].'" class="add-to-cart btn btn-primary">Add to cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>';
-    }
-    ?>
+    <div class="container">
+        <div class="row">
+                    <?php
+                    while ($row = mysqli_fetch_array($data['stuff'])){
+                        echo '
+                            <div class="col">
+                                <div class="card" style="width: 20rem;">
+                                    <img class="card-img-top" src="'.$row[3].'" alt="Card image cap">
+                                    <div class="card-block">
+                                        <h4 class="card-tilte">'.$row[1].'</h4>
+                                        <p class="card-text">Price: '.$row[2].'</p>
+                                        <a href="#" data-name="'.$row[1].'" data-price="'.$row[2].'" class="add-to-cart btn btn-primary">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            ';
+                    }
+                    ?>
+        </div>
+    </div>
 
 
     <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">

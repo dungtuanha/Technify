@@ -11,8 +11,8 @@ class Admin extends Controller{
             }
         }
 
-        if(isset($_SESSION["remove_user_id"])){
-            $status = $user->RemoveUser($_SESSION["remove_user_id"]);
+        if(isset($_COOKIE["remove_user_id"])){
+            $status = $user->RemoveUser($_COOKIE["remove_user_id"]);
         } else {
             $status = "no session";
         }
@@ -26,14 +26,26 @@ class Admin extends Controller{
     }
 
     public function stuff(){
-        $model = $this->model("Stuff_Model");
-        if($_SESSION["remove_stuff_id"]){
-            $model->RemoveStuff($_SESSION['remove_stuff_id']);
+        $stuff = $this->model("Stuff_Model");
+        
+        if(isset($_COOKIE['change_stuff_id'])){
+            if(isset($_COOKIE['edit_stuff_name'])){
+                $stuff->updateStuff($_COOKIE['change_stuff_id'], 'name', $_COOKIE['edit_stuff_name']);
+            } else if (isset($_COOKIE['edit_stuff_price'])){
+                $stuff->updateStuff($_COOKIE['change_stuff_id'], 'price', Number($_COOKIE['edit_stuff_price']));
+            }
         }
 
-        $stuff = $model->Stuff();
+        if(isset($_SESSION["remove_stuff_id"])){
+            $status = $stuff->RemoveUser($_SESSION["remove_stuff_id"]);
+        } else {
+            $status = "no session";
+        }
+
+
+        $stock = $stuff->Stuff();
         $this->view("admin_stuff_management", [
-            "stuff"=>$stuff
+            "stuff"=>$stock
         ]);
     }
 

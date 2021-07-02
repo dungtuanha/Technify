@@ -18,7 +18,7 @@ class Shopping extends Controller{
 
         $cart = $_SESSION["confirmCart"];
         
-        $this->view("shopping_page", [
+        $this->view("cart_page", [
             "cart"=>$cart
         ]);
     }
